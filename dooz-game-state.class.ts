@@ -43,7 +43,7 @@ export class DoozBoardState {
 
             for (let x = 0; x < LENGTH; x++) {
                 const c = this.cols[x][y];
-                console.log(previousChips,c,x,y)
+                // console.log(previousChips,c,x,y)
                 if (c === 'empty') {
                     previousChips = c;
                     counter = 0;
@@ -68,143 +68,143 @@ export class DoozBoardState {
         }
 
         // Top Diagnole LTR
-        for (let baseX = 0; baseX < LENGTH; baseX++) {
-            let previousChips: ChipsType = 'empty';
-            let counter = 0;
-
-            let x = baseX,
-                y = 0;
-            for (let i = 0; i < LENGTH && x < LENGTH && y < LENGTH; i++) {
-                const c = this.cols[x][y];
-                x++;
-                y++;
-                if (c === 'empty') {
-                    previousChips = c;
-                    counter = 0;
-                    continue;
-                }
-                if (
-                    c != previousChips
-                ) {
-                    previousChips = c;
-                    counter = 1;
-                    continue;
-                }
-
-                counter++;
-
-                if (counter == 4) {
-                    return c;
-                }
-
-                previousChips = c;
-            }
-        }
-
-        // Bottom Diagnole LTR
-        for (let baseX = 0; baseX < LENGTH; baseX++) {
-            let previousChips: ChipsType = 'empty';
-            let counter = 0;
-
-            let x = 0,
-                y = baseX;
-            for (let i = 0; i < LENGTH && x < LENGTH && y < LENGTH; i++) {
-                const c = this.cols[x][y];
-                x++;
-                y++;
-
-                if (c === 'empty') {
-                    previousChips = c;
-                    counter = 0;
-                    continue;
-                }
-                if (
-                    c != previousChips
-                ) {
-                    previousChips = c;
-                    counter = 1;
-                    continue;
-                }
-
-                counter++;
-
-                if (counter == 4) {
-                    return c;
-                }
-
-                previousChips = c;
-            }
-        }
-
-        // Top Diagnole RTL
-        for (let baseX = 0; baseX < LENGTH; baseX++) {
-            let previousChips: ChipsType = 'empty';
-            let counter = 0;
-
-            let x = LENGTH - 1,
-                y = baseX;
-            for (let i = 0; i < LENGTH && x < LENGTH && y < LENGTH; i++) {
-                const c = this.cols[x][y];
-                x--;
-                y++;
-
-                if (c === 'empty') {
-                    previousChips = c;
-                    counter = 0;
-                    continue;
-                }
-                if (
-                    c != previousChips
-                ) {
-                    previousChips = c;
-                    counter = 1;
-                    continue;
-                }
-
-                counter++;
-
-                if (counter == 4) {
-                    return c;
-                }
-
-                previousChips = c;
-            }
-        }
-
-        // Bottom Diagnole LTR
-        for (let baseX = 0; baseX < LENGTH; baseX++) {
-            let previousChips: ChipsType = 'empty';
-            let counter = 0;
-
-            let x = baseX,
-                y = LENGTH - 1;
-            for (let i = 0; i < LENGTH && x < LENGTH && y < LENGTH; i++) {
-                const c = this.cols[x][y];
-                x--;
-                y++;
-
-                if (c === 'empty') {
-                    previousChips = c;
-                    counter = 0;
-                    continue;
-                }
-                if (
-                    c != previousChips
-                ) {
-                    previousChips = c;
-                    counter = 1;
-                    continue;
-                }
-
-                counter++;
-
-                if (counter == 4) {
-                    return c;
-                }
-
-                previousChips = c;
-            }
-        }
+        // for (let baseX = 0; baseX < LENGTH; baseX++) {
+        //     let previousChips: ChipsType = 'empty';
+        //     let counter = 0;
+        //
+        //     let x = baseX,
+        //         y = 0;
+        //     for (let i = 0; i < LENGTH && x < LENGTH && y < LENGTH; i++) {
+        //         const c = this.cols[x][y];
+        //         x++;
+        //         y++;
+        //         if (c === 'empty') {
+        //             previousChips = c;
+        //             counter = 0;
+        //             continue;
+        //         }
+        //         if (
+        //             c != previousChips
+        //         ) {
+        //             previousChips = c;
+        //             counter = 1;
+        //             continue;
+        //         }
+        //
+        //         counter++;
+        //
+        //         if (counter == 4) {
+        //             return c;
+        //         }
+        //
+        //         previousChips = c;
+        //     }
+        // }
+        //
+        // // Bottom Diagnole LTR
+        // for (let baseX = 0; baseX < LENGTH; baseX++) {
+        //     let previousChips: ChipsType = 'empty';
+        //     let counter = 0;
+        //
+        //     let x = 0,
+        //         y = baseX;
+        //     for (let i = 0; i < LENGTH && x < LENGTH && y < LENGTH; i++) {
+        //         const c = this.cols[x][y];
+        //         x++;
+        //         y++;
+        //
+        //         if (c === 'empty') {
+        //             previousChips = c;
+        //             counter = 0;
+        //             continue;
+        //         }
+        //         if (
+        //             c != previousChips
+        //         ) {
+        //             previousChips = c;
+        //             counter = 1;
+        //             continue;
+        //         }
+        //
+        //         counter++;
+        //
+        //         if (counter == 4) {
+        //             return c;
+        //         }
+        //
+        //         previousChips = c;
+        //     }
+        // }
+        //
+        // // Top Diagnole RTL
+        // for (let baseX = 0; baseX < LENGTH; baseX++) {
+        //     let previousChips: ChipsType = 'empty';
+        //     let counter = 0;
+        //
+        //     let x = LENGTH - 1,
+        //         y = baseX;
+        //     for (let i = 0; i < LENGTH && x < LENGTH && y < LENGTH; i++) {
+        //         const c = this.cols[x][y];
+        //         x--;
+        //         y++;
+        //
+        //         if (c === 'empty') {
+        //             previousChips = c;
+        //             counter = 0;
+        //             continue;
+        //         }
+        //         if (
+        //             c != previousChips
+        //         ) {
+        //             previousChips = c;
+        //             counter = 1;
+        //             continue;
+        //         }
+        //
+        //         counter++;
+        //
+        //         if (counter == 4) {
+        //             return c;
+        //         }
+        //
+        //         previousChips = c;
+        //     }
+        // }
+        //
+        // // Bottom Diagnole LTR
+        // for (let baseX = 0; baseX < LENGTH; baseX++) {
+        //     let previousChips: ChipsType = 'empty';
+        //     let counter = 0;
+        //
+        //     let x = baseX,
+        //         y = LENGTH - 1;
+        //     for (let i = 0; i < LENGTH && x < LENGTH && y < LENGTH; i++) {
+        //         const c = this.cols[x][y];
+        //         x--;
+        //         y++;
+        //
+        //         if (c === 'empty') {
+        //             previousChips = c;
+        //             counter = 0;
+        //             continue;
+        //         }
+        //         if (
+        //             c != previousChips
+        //         ) {
+        //             previousChips = c;
+        //             counter = 1;
+        //             continue;
+        //         }
+        //
+        //         counter++;
+        //
+        //         if (counter == 4) {
+        //             return c;
+        //         }
+        //
+        //         previousChips = c;
+        //     }
+        // }
 
         return 'empty';
     }

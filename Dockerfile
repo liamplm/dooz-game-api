@@ -29,7 +29,7 @@ ENV NODE_ENV=production
 # copy production dependencies and source code into final image
 FROM base AS release
 COPY --from=install /temp/prod/node_modules node_modules
-COPY --from=prerelease /usr/src/app/*.ts .
+COPY --from=prerelease /usr/src/app/*.ts ./
 COPY --from=prerelease /usr/src/app/wwww/browser wwww/browser
 COPY --from=prerelease /usr/src/app/package.json .
 

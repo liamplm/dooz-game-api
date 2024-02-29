@@ -67,7 +67,9 @@ io.on('connection', (socket: Socket) => {
                         ? GameEndReason.YouWin
                         : GameEndReason.YouLose,
                 );
+                gameService.socketToRoomId.delete(s.id);
             });
+            gameService.roomToSockets.delete(playingRoomId);
         }
 
         // (await io.in(socket.rooms[0]).fetchSockets()).
@@ -136,6 +138,6 @@ app.use(
     }),
 );
 
-server.listen(3000, () => {
+server.listen(port, () => {
     console.log('listening on *:3000');
 });
