@@ -10,5 +10,6 @@ export const NEED_MATCH_EVENT = 'need_match',
 export enum GameEndReason {
     OpponentLeft,
     YouWin,
-    YouLose
+    YouLose,
+    Tie
 }

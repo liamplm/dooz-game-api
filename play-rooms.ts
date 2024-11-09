@@ -67,15 +67,21 @@ export class PlayingRooms {
             const playingRoomId = this.genrateRandomName();
             this.roomToSockets.set(playingRoomId, {
                 sockets: [otherGuy.id, guy.id],
-                state: new DoozBoardState(),
+                state: new DoozBoardState({ x:7, y:7 }),
             });
             this.socketToRoomId.set(otherGuy.id, playingRoomId);
             this.socketToRoomId.set(guy.id, playingRoomId);
 
             otherGuy.leave(MATCH_MAKING_ROOM);
 
-            otherGuy.emit(MATCH_FOUND_EVENT, otherGuy.id);
-            guy.emit(MATCH_FOUND_EVENT, otherGuy.id);
+            otherGuy.emit(MATCH_FOUND_EVENT, {
+                turn: 'us',
+                opponentName: guy.data.name,
+            });
+            guy.emit(MATCH_FOUND_EVENT, {
+                turn: 'opponent',
+                opponentName: otherGuy.data.name,
+            });
 
             console.log(guy.id, otherGuy.id, 'are playing at ', playingRoomId);
             console.log(
